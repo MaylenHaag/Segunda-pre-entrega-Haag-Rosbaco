@@ -1,3 +1,5 @@
+from clientes import Clientes
+
 #REGISTRO DE USUARIOS
 
 #Creo diccionario donde se guardaran los datos de los usuarios
@@ -30,13 +32,22 @@ def registro_usuarios (DB):
         else:
             print("\nEl usuario ha sido correctamente registrado!")
             break
+
+        u_nombre=input("\nIngrese su nombre: ")
+        u_apellido=input("Ingrese su apellido: ")
+        u_direccion=input("Ingrese su direccion: ")
+
+    Clientes(nombre=u_nombre, apellido=u_apellido, direccion=u_direccion)
+    
     #Imprimimos elnombre de usuario y contraseña recien registrados
     print(f"\nNombre de usuario: {usuario}")
     print(f"Contraseña: {contraseña}")
 
     guardo_usuarios(usuario, contraseña)
 
-    menu()
+   
+
+    #menu()
 
     return usuario, contraseña
 
@@ -106,9 +117,6 @@ def menu ():
         print("\nRespuesta incorrecta.")
         menu()
 
-
-#Mensaje de bienvenida
-print("\nHola, bienvenido a mi primer entrega!")
 
 salida = 0
 
