@@ -8,7 +8,7 @@ class Clientes(object) :
         self.apellido = apellido
         self.direccion = direccion
 
-        self.compra = [] #me gustaria que este afuera del init
+        self.compra = []
 
     def __str__ (self) :
 
@@ -24,41 +24,47 @@ class Clientes(object) :
 
     def mostrar_compra(self):
 
-        print("Su carrito de compras es:")
+        total_compra = 0
 
-        total_gastado = 0
+        print("\nCarrito de compras:")
 
         for producto, precio in self.compra:
-            print(f"  - {producto} (${precio})") #quiero cambiar este formato
-            total_gastado += precio
+            print(f"  Producto: {producto} |  Precio: ${precio}") 
+            total_compra += precio
 
-        print(f"Total gastado: ${total_gastado}")
+        if total_compra == 0 :
+            print("Su carrito esta vacío")
+        else :
+            print(f"\nTotal de la compra: ${total_compra}")
 
 
     def menu(self):
         while True:
-            print("\n--- Bienvenidos al menu de la tienda ---")
-            print("1. Agregar producto al carrito(stock sin limites)")
-            print("2. Mostrar carrito")
-            print("3. Salir")
+            print("\nMENU \n1. Agregar productos al carrito \n2. Ver carrito \n3. Salir del programa")
 
-            opcion = input("Selecciona una opción (1/2/3): ")
-            if opcion == "1":
-                producto = input("Nombre del producto: ")
-                precio = random.uniform(1.0, 100.0)  # Precio aleatorio entre 1 y 100
+            menu_resp = int(input("\nIngrese su respuesta en forma numérica: "))
+
+            if menu_resp == 1:
+                producto = input("Ingrese el nombre del producto: ")
+                precio = random.uniform(1.0, 100.0) 
                 self.agregar_producto(producto, precio)
-            elif opcion == "2":
+
+            elif menu_resp == 2:
                 self.mostrar_compra()
-            elif opcion == "3":
-                print("¡Gracias por compra en Tienda RomeroLeandro!!!!!\n hasta la proxima")
+
+            elif menu_resp == 3:
+                self.compra_envio()
+                print("\n¡¡Muchas gracias por elegirnos!!")
                 break
+
             else:
                 print("Opción inválida. Inténtalo nuevamente.")
 
 
     def compra_envio (self) :
 
-        print(f"La compra {self.compra} se enviara a la dirección {self.direccion}")
+        
+        print(f"\nSu compra se enviara a la dirección {self.direccion} a nombre de {self.nombre} {self.apellido}")
     
     
 

@@ -33,11 +33,11 @@ def registro_usuarios (DB):
             print("\nEl usuario ha sido correctamente registrado!")
             break
 
-        u_nombre=input("\nIngrese su nombre: ")
-        u_apellido=input("Ingrese su apellido: ")
-        u_direccion=input("Ingrese su direccion: ")
+        u_nombre = input("\nIngrese su nombre: ")
+        u_apellido = input("Ingrese su apellido: ")
+        u_direccion = input("Ingrese su direccion: ")
 
-    Clientes(nombre=u_nombre, apellido=u_apellido, direccion=u_direccion)
+    Clientes(nombre = u_nombre, apellido = u_apellido, direccion = u_direccion)
     
     #Imprimimos elnombre de usuario y contraseña recien registrados
     print(f"\nNombre de usuario: {usuario}")
