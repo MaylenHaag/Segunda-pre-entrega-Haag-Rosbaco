@@ -1,3 +1,5 @@
+#EJECUTAR ACA!!
+
 from paquete.clientes import Clientes
 
 
@@ -7,7 +9,7 @@ p_direccion = input("Ingrese su direccion: ")
 
 cliente = Clientes(nombre = p_nombre, apellido = p_apellido, direccion = p_direccion)
 
-cliente.menu()
+cliente.menu_compra()
 
 
 

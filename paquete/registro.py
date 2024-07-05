@@ -1,10 +1,15 @@
 from clientes import Clientes
 
+#TUTOR DIEGO:
+#Esto todavia no funciona bien, mi idea es que la persona pueda crear un usuario, ingresar, luego hacer la compra y salir.
+#Este archivo esta en modificacion por lo que va a ver que no se ejecuta.
+
 #REGISTRO DE USUARIOS
 
 #Creo diccionario donde se guardaran los datos de los usuarios
 DB = {}
 
+cliente = Clientes
 
 #FUNCIONES DE USUARIO
 
@@ -29,25 +34,51 @@ def registro_usuarios (DB):
         #Corroboramos que no se ingrese una contraseña vacia
         if contraseña == "":
             contraseña = input("\nSu contraseña no puede estar vacía. Vuelva a ingresarla: ")
-        else:
-            print("\nEl usuario ha sido correctamente registrado!")
+        else :
             break
 
-        u_nombre = input("\nIngrese su nombre: ")
-        u_apellido = input("Ingrese su apellido: ")
-        u_direccion = input("Ingrese su direccion: ")
+ #   u_nombre = input("\nIngrese su nombre: ")
+#     while True :
+ #        #Corroboramos que no se ingrese un nombre vacio
+#        if u_nombre == "" :
+ #           print("\nNo ha ingresado ningún dato.")
+ #           u_nombre = input("\nIngrese su nombre: ")
+#
+ #       else:
+ #           break
 
-    Clientes(nombre = u_nombre, apellido = u_apellido, direccion = u_direccion)
+ #   u_apellido = input("\nIngrese su apellido: ")
+  #  while True :
+        #Corroboramos que no se ingrese un apellido vacio
+  #      if u_apellido == "" :
+ #           print("\nNo ha ingresado ningún dato.")
+ #           u_apellido = input("\nIngrese su apellido: ")
+
+ #       else:   
+ #           break
+
+  #  u_direccion = input("\nIngrese su dirección: ")
+ #   while True :
+ #       #Corroboramos que no se ingrese una direccion vacia
+ #       if u_direccion == "" :
+ #           print("\nNo ha ingresado ningún dato.")
+ #           u_direccion = input("\nIngrese su dirección: ")
+
+  #      else:    
+  #          break
+    
+    
+  #  cliente = Clientes(nombre = u_nombre, apellido = u_apellido, direccion = u_direccion)
+
     
     #Imprimimos elnombre de usuario y contraseña recien registrados
-    print(f"\nNombre de usuario: {usuario}")
+    cliente.__str__()
+    print(f"Usuario: {usuario}")
     print(f"Contraseña: {contraseña}")
 
     guardo_usuarios(usuario, contraseña)
 
-   
-
-    #menu()
+    menu_ingreso()
 
     return usuario, contraseña
 
@@ -68,7 +99,7 @@ def mostrar_usuarios(DB) :
         print(f"\nUsuario: {usuario}")
         print(f"Contraseña: {contraseña}")
 
-    menu()
+    menu_ingreso()
 
 
 #Funcion para hacer el login
@@ -83,6 +114,7 @@ def login(DB):
             #En caso de existir el usuario, corroboramos que la contraseña sea correcta e iniciamos sesion
             if DB[usuario] == contraseña :
                 print("\nInicio de sesión exitoso")
+                cliente.menu_compra()
                 break
             #Si la contraseña no es correcta, volvemos a pedir nombre de usuario y contraseña
             elif DB[usuario] != contraseña :
@@ -100,7 +132,7 @@ def login(DB):
 # FUNCION MENU Y BIENVENIDA
 
 #Funcion menu
-def menu ():
+def menu_ingreso ():
     print("\nMENU \n1. Ingresar al programa \n2. Registrar un usuario \n3. Ver los usuarios registrados \n4. Salir del programa")
 
     menu_resp = int(input("\nIngrese su respuesta en forma numérica: "))
@@ -115,7 +147,7 @@ def menu ():
         print("\nHa finalizado el programa")
     else :
         print("\nRespuesta incorrecta.")
-        menu()
+        menu_ingreso()
 
 
 salida = 0
